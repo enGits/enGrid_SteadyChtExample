@@ -1,0 +1,48 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.1.x                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      binary;
+    class       volScalarField;
+    location    "0";
+    object      k;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [ 0 2 -2 0 0 0 0 ];
+
+value           3.75e-3;
+internalField   uniform $value;
+
+boundaryField
+{
+    cold_in
+    {
+        type            fixedValue;
+        value           uniform $value;
+    }
+    cold_out
+    {
+        type            zeroGradient;
+        value           uniform $value;
+    }
+    "cold_w.*"
+    {
+        type            compressible::kqRWallFunction;
+        value           uniform $value;
+    }
+    cold_pipe_cold
+    {
+        type            compressible::kqRWallFunction;
+        value           uniform $value;
+    }
+}
+
+
+// ************************************************************************* //

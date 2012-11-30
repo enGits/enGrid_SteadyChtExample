@@ -1,0 +1,86 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \    /   O peration     | Version:  1.5                                   |
+|   \  /    A nd           | Web:      http://www.OpenFOAM.org               |
+|    \/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       polyBoundaryMesh;
+    location    "constant/polyMesh";
+    object      boundary;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+8
+(
+    cold_pipe_solid
+    {
+        type                 mappedWall;
+        nFaces               13925;
+        startFace            505536;
+        startFace            505536;
+        sampleMode           nearestPatchFace;
+        sampleRegion         cold;
+        samplePatch          cold_pipe_cold;
+        offsetMode           uniform;
+        offset               ( 0 0 0 );
+    }
+    hot_pipe_solid
+    {
+        type                 mappedWall;
+        nFaces               10693;
+        startFace            519461;
+        startFace            519461;
+        sampleMode           nearestPatchFace;
+        sampleRegion         hot;
+        samplePatch          hot_pipe_hot;
+        offsetMode           uniform;
+        offset               ( 0 0 0 );
+    }
+    solid_back
+    {
+        type                 patch;
+        nFaces               325;
+        startFace            530154;
+    }
+    solid_bottom
+    {
+        type                 patch;
+        nFaces               901;
+        startFace            530479;
+    }
+    solid_front
+    {
+        type                 patch;
+        nFaces               1514;
+        startFace            531380;
+    }
+    solid_left
+    {
+        type                 patch;
+        nFaces               303;
+        startFace            532894;
+    }
+    solid_right
+    {
+        type                 patch;
+        nFaces               296;
+        startFace            533197;
+    }
+    solid_top
+    {
+        type                 patch;
+        nFaces               888;
+        startFace            533493;
+    }
+)
+
+// ************************************************************************* //
+
+
